@@ -3,5 +3,6 @@ Android-Copymao
 
 EyeEm UserGuide UI
 ====
-* Mutiple layers in a single activity (Core classes: LayoutInflater, ViewGroup)
-* Third-part libraries (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer)
+Result of work:
+* Mutiple layers in a single activity (Core classes: LayoutInflater, ViewGroup, Viewpager, Animation XML )
+* Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer)
