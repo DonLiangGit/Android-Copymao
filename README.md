@@ -1,6 +1,6 @@
 Android-Copymao
 ===============
-![](http://media.giphy.com/media/lBD50rKnTBvxu/giphy.gif)
+![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 EyeEm UserGuide UI
 ====
 Result of work:
