@@ -9,7 +9,7 @@ Attempting to implement some Android Applications with Top Developer Badage is c
 EyeEm UserGuide UI
 ====
 Result of work:
-* Dynamic UI with Animation (Core classes: LayoutInflater, ViewGroup, Viewpager, Animation XML, Fragment/FragmentManager/FragmentTransition, Backstack, Actionbar), (Core elements: ScrollView(fillviewport), EditText, Framelayout)
+* Dynamic UI with Animation (Core classes: LayoutInflater, ViewGroup, Viewpager, Animation XML, Fragment/FragmentManager/FragmentTransition, Backstack, Actionbar), (Core elements: ScrollView(fillviewport), EditText, Framelayout, ListView(onScrollListener), Color, ImageView(ColorFilter))
 * Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer)
-* Special Thanks (Alexander Lansang, Flavien Laurent(Fake Header Effect))
+* Special Thanks (Alexander Lansang(README gif), Flavien Laurent/Antoine Merle(Parallex Effect))
 
