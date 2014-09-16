@@ -12,6 +12,6 @@ Result of work:
 - Dynamic UI with Animations and Effects
   * Core classes: LayoutInflater, ViewGroup, Viewpager, Animation XML, Fragment/FragmentManager/FragmentTransition, Backstack, Actionbar)
   * Core elements: ScrollView(fillviewport), EditText, Framelayout, ListView(onScrollListener), Color/Drawable(setAlpha()), ImageView(ColorFilter))
-- Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer, jfeinstein10/SlidingMenu)
+- Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer, jfeinstein10/SlidingMenu(I am not using nav drawer like eyeEM))
 - Special Thanks (Alexander Lansang(README gif), Flavien Laurent/Antoine Merle(Parallax Effect))
 
