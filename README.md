@@ -6,7 +6,7 @@ Attempting to implement some Android Applications with Top Developer Badage is c
 
 
 
-Matchie(Online Chanllenge) EyeEm-like UI
+Matchie -> EyeEm-like UI [Demo](https://www.youtube.com/watch?v=7dBwQBw4etw&feature=youtu.be)  
 ====
 Result of work:
 - Dynamic UI with Animations and Effects
@@ -15,5 +15,4 @@ Result of work:
 - Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer, jfeinstein10/SlidingMenu(I am not using nav drawer like eyeEM), chrisbanes/ActionBar-PullToRefresh)
 - Special Thanks (Alexander Lansang(README gif), Flavien Laurent/Antoine Merle(Parallax Effect))
 
-[<img src="Screenshot_2014-09-28-00-22-23.png" width="40%" height="40%">](https://www.youtube.com/watch?v=7dBwQBw4etw&feature=youtu.be)  Click the image to see demo.
 
