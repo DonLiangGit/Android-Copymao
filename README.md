@@ -6,7 +6,7 @@ Attempting to implement some Android Applications with Top Developer Badage is c
 
 
 
-EyeEm UserGuide UI
+Matchie(Online Chanllenge) EyeEm-like UI
 ====
 Result of work:
 - Dynamic UI with Animations and Effects
