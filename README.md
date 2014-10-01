@@ -14,5 +14,6 @@ Result of work:
   * Core elements: ScrollView(fillviewport), EditText, Framelayout, ListView(onScrollListener/[Designtime Layout Attribute](http://tools.android.com/tips/layout-designtime-attributes),ListviewAdapter-Modified-getView()adding animation), Color/Drawable(setAlpha()), ImageView(ColorFilter))
 - Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer, jfeinstein10/SlidingMenu(I am not using nav drawer like eyeEM), chrisbanes/ActionBar-PullToRefresh)
 - Special Thanks (Alexander Lansang(README gif), Flavien Laurent/Antoine Merle(Parallax Effect))
-[![ScreenShot](Screenshot_2014-09-28-00-22-23.png)](https://www.youtube.com/watch?v=7dBwQBw4etw&feature=youtu.be)
+
+[<img src="Screenshot_2014-09-28-00-22-23.png" width="40%" height="40%">](https://www.youtube.com/watch?v=7dBwQBw4etw&feature=youtu.be)
 
