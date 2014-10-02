@@ -1,6 +1,6 @@
 Android-Copymao
 ===============
-Attempting to implement some Android Applications with Top Developer Badage is chanllenging but freaking fun!
+Android Applications with Top Developer Badage Reimplementation is chanllenging but freaking fun!
 
 ![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 
