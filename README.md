@@ -1,6 +1,9 @@
 Android-Copymao
 ===============
-Android Applications with Top Developer Badage Reimplementation is chanllenging but freaking fun!
+       The only way you can get good, unless you're a genius, is to copy. That's the best thing. Just steal.
+
+       - Ritchie Blackmore
+ 
 
 ![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 
