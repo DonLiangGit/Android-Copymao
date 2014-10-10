@@ -18,4 +18,9 @@ Result of work:
 - Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer, jfeinstein10/SlidingMenu(I am not using nav drawer like eyeEM), chrisbanes/ActionBar-PullToRefresh)
 - Special Thanks (Alexander Lansang(README gif), Flavien Laurent/Antoine Merle(Parallax Effect))
 
-
+??? -> Floating Burger 2.0
+====
+Result of work:
+- Dynamic UI with Animations and Effects
+- Third-part libraries integration
+- Special Thanks
