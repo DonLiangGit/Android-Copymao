@@ -23,4 +23,4 @@ Result of work:
 Result of work:
 - Dynamic UI with Animations and Effects
 - Third-part libraries integration
-- Special Thanks
+- Special ThanksBrett(Vertical ViewPager)
