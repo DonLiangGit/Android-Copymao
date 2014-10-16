@@ -1,24 +1,24 @@
 {
   "stylepuzzle": [
     {
-      "title": "NEW ARRIVALS",
-      "subtitle": "street.wear"
-      "image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
+	"title": "NEW ARRIVALS",
+	"subtitle": "street.wear"
+	"image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
     },
     {
-	  "title": "SUMMER SALE",
-      "subtitle": " "
-      "image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
+	"title": "SUMMER SALE",
+	"subtitle": " "
+	"image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
     }
     {
-	  "title": "FALL 2014 COLLECTION",
-      "subtitle": "See.lookbook"
-      "image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
+	"title": "FALL 2014 COLLECTION",
+	"subtitle": "See.lookbook"
+	"image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
     }
         {
-	  "title": "SUMMER 2014 COLLECTION",
-      "subtitle": "Yo, new stuff"
-      "image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
+	"title": "SUMMER 2014 COLLECTION",
+	"subtitle": "Yo, new stuff"
+      	"image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
     }
   ]
 }
