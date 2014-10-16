@@ -18,11 +18,10 @@ Result of work:
 - Third-part libraries integration (medyo/fancybuttons, xgc1986/ParallaxPagerTransformer, jfeinstein10/SlidingMenu(I am not using nav drawer like eyeEM), chrisbanes/ActionBar-PullToRefresh)
 - Special Thanks: (Alexander Lansang(README gif), Flavien Laurent/Antoine Merle(Parallax Effect))
 
-??? -> Floating Burger 2.0
+Weatherapp -> Floating Burger 2.0
 ====
 Result of work:
 - Dynamic UI with Animations and Effects
-  * Core classes: Clipdrawable, Viewpager(multiple methods)
-  * 
+  * Core classes: Clipdrawable, Viewpager(multiple methods)，Canvas(drawpath)
 - Third-part libraries integration
 - Special Thanks: Brett(Vertical ViewPager)
