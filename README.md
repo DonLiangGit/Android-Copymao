@@ -25,3 +25,17 @@ Result of work:
   * Core classes: Clipdrawable, Viewpager(multiple methods)，Canvas(drawpath)
 - Third-part libraries integration
 - Special Thanks: Brett(Vertical ViewPager)
+
+StylePuzzle 
+====
+Working:
+Splash screen UI
+Animation
+Slidngmenu
+Listview Cach(Memory / Disk)
+
+Backlog:
+StaggeredGridView
+Resize Image
+Image drag and drop
+RecycleView Optimization
