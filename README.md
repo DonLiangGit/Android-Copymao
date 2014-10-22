@@ -37,5 +37,5 @@ Listview Cach(Memory / Disk)
 Backlog:
 StaggeredGridView
 Resize Image
-Image drag and drop
+Image drag and drop(Data changed/Animation)
 RecycleView Optimization
