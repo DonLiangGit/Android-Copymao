@@ -1,24 +1,34 @@
 {
   "stylepuzzle": [
     {
-	"title": "NEW ARRIVALS",
-	"subtitle": "street.wear",
-	"image": "https://31.media.tumblr.com/b7538750f34315c19389d50a7eee6165/tumblr_ndlv6n71521rj0ar1o1_500.jpg"
+	"title": "Fengwan",
+	"subtitle": "Los Angeles, CA",
+	"image": "https://d2i5khuir6rc3s.cloudfront.net/media/user_profile_pic/9b0ca770-acd7-4c05-a523-5d22eeb0273d.jpg"
     },
     {
-	"title": "SUMMER SALE",
-	"subtitle": " ",
-	"image": "https://38.media.tumblr.com/cebe6da2e54d0fb3fc67758f21bdb4fd/tumblr_ndltdgi6pH1smpwrao1_500.jpg"
+	"title": "Christina C",
+	"subtitle": "San Francisco, CA",
+	"image": "https://d2i5khuir6rc3s.cloudfront.net/media/user_profile_pic/87a59f0b-1082-4a03-8d86-9a64eb72bd75.jpg"
     },
     {
-	"title": "FALL 2014 COLLECTION",
-	"subtitle": "See.lookbook",
-	"image": "https://33.media.tumblr.com/f1d44ae0fe46b7a48cad8e6b2ccfce91/tumblr_ncteest9CW1qadanjo1_500.jpg"
+	"title": "Leigh",
+	"subtitle": "New York City, NY",
+	"image": "https://d2i5khuir6rc3s.cloudfront.net/media/user_profile_pic/5e4e89bd-bd31-48fd-9a0c-590aa602fc9e.jpg"
     },
-        {
-	"title": "SUMMER 2014 COLLECTION",
-	"subtitle": "Yo, new stuff",
-      	"image": "https://38.media.tumblr.com/66b27cc3dcda5e0c6115af9972c28e26/tumblr_ndefapB9Qk1tjusylo1_500.jpg"
+    {
+	"title": "Codi Jane",
+	"subtitle": "Los Angeles, CA",
+      	"image": "https://d2i5khuir6rc3s.cloudfront.net/media/user_profile_pic/0a09cb8b-8396-42fe-a1cc-105cf8f2a14e.jpg"
+    },
+    {
+	"title": "Jane",
+	"subtitle": "San Francisco, CA",
+      	"image": "https://d2i5khuir6rc3s.cloudfront.net/media/user_profile_pic/0a09cb8b-8396-42fe-a1cc-105cf8f2a14e.jpg"
+    },
+    {
+	"title": "Christina H.",
+	"subtitle": "Chicogo, IL",
+      	"image": "https://d2i5khuir6rc3s.cloudfront.net/media/user_profile_pic/0a09cb8b-8396-42fe-a1cc-105cf8f2a14e.jpg"
     }
   ]
 }
