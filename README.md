@@ -29,10 +29,9 @@ Result of work:
 StylePuzzle 
 ====
 Working:
-Splash screen UI
-Animation
-Slidngmenu
-Listview Cach(Memory / Disk)
+Retrofit Integration;
+
+
 
 Backlog:
 StaggeredGridView
