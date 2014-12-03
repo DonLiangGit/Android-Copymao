@@ -28,14 +28,8 @@ Result of work:
 
 StylePuzzle 
 ====
-Working:
-Retrofit Integration;
-
-
 
 Backlog:
-StaggeredGridView
-Resize Image
 Image drag and drop(Data changed/Animation)
 RecycleView Optimization
 
