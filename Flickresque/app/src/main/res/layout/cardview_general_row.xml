@@ -3,47 +3,77 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     card_view:cardElevation="0dp"
     card_view:cardCornerRadius="2dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="wrap_content">
 
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/cardview_test"
-            android:scaleType="centerCrop"/>
+            android:layout_height="250dp"
+            android:id="@+id/cardview_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Photographer"
-            android:textColor="@color/fontLightWhite"
-            android:textSize="17sp"
-            android:background="@drawable/guide_textview_style"
-            android:id="@+id/photographer_textview"
-            android:layout_marginLeft="10dp"
-            android:layout_above="@+id/textView"
-            android:layout_alignParentStart="true" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/imageView"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/cardview_test"
+                android:scaleType="centerCrop"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Photo Title"
-            android:textColor="@color/fontWhite"
-            android:textSize="19sp"
-            android:background="@drawable/guide_textview_style"
-            android:id="@+id/textView"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_alignStart="@+id/imageView" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photographer"
+                android:textColor="@color/fontLightWhite"
+                android:textSize="17sp"
+                android:background="@drawable/guide_textview_style"
+                android:id="@+id/photographer_textview"
+                android:layout_marginLeft="10dp"
+                android:layout_above="@+id/title_textview"
+                android:layout_marginBottom="3dp"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Photo Title"
+                android:textColor="@color/fontWhite"
+                android:textSize="19sp"
+                android:background="@drawable/guide_textview_style"
+                android:id="@+id/title_textview"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_alignBottom="@+id/imageView"
+                android:layout_alignStart="@+id/imageView" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/cardview_content_section"
+                android:background="@color/backgroundWhite"
+                android:layout_below="@+id/imageView"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="# HashTag"
+                    android:textSize="15sp"
+                    android:textColor="@color/fontGrey"
+                    android:id="@+id/hashtag_textView"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

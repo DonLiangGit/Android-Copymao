@@ -6,6 +6,7 @@
     <item name="colorBlue" type="color">#0063da</item>
     <item name="fontWhite" type="color">#ffffff</item>
     <item name="fontLightWhite" type="color">#BDBDBD</item>
+    <item name="fontGrey" type="color">#616161</item>
     <item name="backgroundWhite" type="color">#FAFAFA</item>
 
     <!-- CREATE A COLOR ARRAY IN COLORS XML -->

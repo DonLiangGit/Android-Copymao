@@ -6,5 +6,5 @@
         android:toYDelta="100%p"
         android:toXDelta="0%p"
         android:fromXDelta="0%p"
-        android:duration="250"/>
+        android:duration="300"/>
 </set>
