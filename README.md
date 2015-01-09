@@ -25,3 +25,13 @@ Result of work:
   * Core classes: Clipdrawable, Viewpager(multiple methods)，Canvas(drawpath)
 - Third-part libraries integration
 - Special Thanks: Brett(Vertical ViewPager)
+
+StylePuzzle 
+====
+
+Backlog:
+Image drag and drop(Data changed/Animation)
+RecycleView Optimization
+
+Appygeek decode:
+Libraries: chrisbanes/ActionBar-PullToRefresh, castorflex/SmoothProgressBar, JakeWharton/DiskLruCache, jgilfelt/SystemBarTint
