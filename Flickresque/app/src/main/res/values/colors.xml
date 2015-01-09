@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="colorPrimary" type="color">#ff0084</item>
+    <item name="colorPrimary_light" type="color">#8cff0084</item>
+    <item name="colorBlue" type="color">#0063da</item>
+    <item name="fontWhite" type="color">#ffffff</item>
+    <item name="fontLightWhite" type="color">#BDBDBD</item>
+    <item name="backgroundWhite" type="color">#FAFAFA</item>
+
+    <!-- CREATE A COLOR ARRAY IN COLORS XML -->
+    <color name="custom_theme_darker">#ff0084</color>
+    <color name="custom_theme_dark">#e60077</color>
+    <color name="custom_theme_primary">#cc006a</color>
+    <color name="custom_theme_light">#fae8c8</color>
+
+    <integer-array name="custom_theme">
+        <item>@color/custom_theme_darker</item> <!-- really much darker color of main color -->
+        <item>@color/custom_theme_dark</item> <!-- a bit darker color of your main color -->
+        <item>@color/custom_theme_primary</item> <!-- main color of your theme -->
+        <item>@color/custom_theme_light</item> <!-- really much lighter color of main color -->
+    </integer-array>
+
+    <!-- CREATE A COLOR ARRAY IN COLORS XML -->
+    <color name="button_theme_darker">#000000</color>
+    <color name="button_theme_dark">#8cffffff</color>
+    <color name="button_theme_primary">#8cffffff</color>
+    <color name="button_theme_light">#8cffffff</color>
+
+    <integer-array name="button_theme">
+        <item>@color/button_theme_darker</item> <!-- really much darker color of main color -->
+        <item>@color/button_theme_dark</item> <!-- a bit darker color of your main color -->
+        <item>@color/button_theme_primary</item> <!-- main color of your theme -->
+        <item>@color/button_theme_light</item> <!-- really much lighter color of main color -->
+    </integer-array>
+</resources>
