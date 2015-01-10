@@ -1,11 +1,11 @@
 package don.com.flickresque;
 
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -49,26 +49,18 @@ public class MainActivity extends ActionBarActivity {
             private int lastVisibleItem;
             private int mLastFirstVisibleItem;
 
+            Matrix imageMatrix;
+
+            @Override
+            public void onScrolled (RecyclerView recyclerView, int dx, int dy) {
+
+            }
+
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
                 super.onScrollStateChanged(recyclerView, scrollState);
-                if(scrollState == 0) {
-//                    Log.d("Scroll", "Stops");
-                }
-
-                if(exLayoutManager == null) {
-                    Log.d("layoutmanager", "null");
-                } else {
-                    firstVisibleItem = scrollDetector.findFirstVisibleItemPosition();
-                    lastVisibleItem = scrollDetector.findLastVisibleItemPosition();
-                    if(mLastFirstVisibleItem < firstVisibleItem) {
-                        Log.d("Scroll", "down");
-                    }
-                    if(mLastFirstVisibleItem > firstVisibleItem) {
-                        Log.d("Scroll", "up");
-                    }
-                    mLastFirstVisibleItem = firstVisibleItem;
-                }
+                firstVisibleItem = scrollDetector.findFirstVisibleItemPosition();
+                lastVisibleItem = scrollDetector.findLastVisibleItemPosition();
 
             }
         });
