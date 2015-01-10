@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -39,6 +40,38 @@ public class MainActivity extends ActionBarActivity {
 
         exAdapter = new ExCardViewAdapter(dataset);
         exRecyclerView.setAdapter(exAdapter);
+
+        // RecyclerView onScrollListener
+        exRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            private LinearLayoutManager scrollDetector = (LinearLayoutManager)exLayoutManager;
+            private int firstVisibleItem;
+            private int lastVisibleItem;
+            private int mLastFirstVisibleItem;
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
+                super.onScrollStateChanged(recyclerView, scrollState);
+                if(scrollState == 0) {
+//                    Log.d("Scroll", "Stops");
+                }
+
+                if(exLayoutManager == null) {
+                    Log.d("layoutmanager", "null");
+                } else {
+                    firstVisibleItem = scrollDetector.findFirstVisibleItemPosition();
+                    lastVisibleItem = scrollDetector.findLastVisibleItemPosition();
+                    if(mLastFirstVisibleItem < firstVisibleItem) {
+                        Log.d("Scroll", "down");
+                    }
+                    if(mLastFirstVisibleItem > firstVisibleItem) {
+                        Log.d("Scroll", "up");
+                    }
+                    mLastFirstVisibleItem = firstVisibleItem;
+                }
+
+            }
+        });
 
     }
 
