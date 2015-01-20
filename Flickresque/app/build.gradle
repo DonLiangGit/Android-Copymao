@@ -22,12 +22,18 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Maven
+    // Material Design
     compile 'com.android.support:appcompat-v7:21.+'
     compile 'com.android.support:cardview-v7:+'
     compile 'com.android.support:recyclerview-v7:+'
-    compile 'com.github.eluleci:flatui:3.0.0'
 
+    // User Interfaces
+    compile 'com.github.eluleci:flatui:3.0.0'
     compile 'com.viewpagerindicator:library:2.4.1'
+    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.jakewharton:butterknife:6.0.0'
+
+    // Network
+    compile 'com.squareup.retrofit:retrofit:1.7.1'
 
 }

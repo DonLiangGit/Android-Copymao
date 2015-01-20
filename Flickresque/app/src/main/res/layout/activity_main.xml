@@ -20,4 +20,12 @@
         android:background="?attr/colorPrimaryDark"
         android:layout_alignParentEnd="true" />
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        style="?android:progressBarStyle"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

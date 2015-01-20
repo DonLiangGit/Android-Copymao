@@ -9,5 +9,7 @@
     <string name="fragment_two_text">Style Flickr</string>
     <string name="fragment_three_text">Connect and share</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_image_detail">ImageDetailActivity</string>
+    <string name="title_activity_test">TestActivity</string>
 
 </resources>

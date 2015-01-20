@@ -1,15 +1,17 @@
 package don.com.flickresque;
 
+import android.app.Service;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.List;
@@ -18,75 +20,86 @@ import adapter.ExCardViewAdapter;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import flickr.FlickresqueClient;
-import pojo.Photo;
 import pojo.PhotoResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 
-public class MainActivity extends ActionBarActivity {
+public class TestActivity extends ActionBarActivity {
 
     private static final String TAG = "Flickresque Activity";
     private static final String PHOTOS_PER_PAGE = "30";
 
+    @InjectView(R.id.btnSearch)
+    public Button btnSearch;
+    @InjectView(R.id.txtSearch)
+    public EditText txtSearch;
     @InjectView(R.id.explore_recycler_view)
     public RecyclerView exRecyclerView;
-    @InjectView(R.id.progress_bar)
-    public ProgressBar mProgressbar;
 
     private ExCardViewAdapter exCardViewAdapter;
     private RecyclerView.LayoutManager exLayoutManager;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test);
 
-        // Material Design Toolbar(Actionbar)
-        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
-        if (toolbar != null)
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle("Flickresque");
-
-        // ButterKnife Injection
         ButterKnife.inject(this);
 
         final FlickresqueClient.FlickresqueService mFlickrService = new FlickresqueClient().getFlickrService();
 
-        // Material CardView
         exLayoutManager = new LinearLayoutManager(this);
         exRecyclerView.setLayoutManager(exLayoutManager);
         exCardViewAdapter = new ExCardViewAdapter(this, null);
         exRecyclerView.setAdapter(exCardViewAdapter);
 
-        mFlickrService.getInterest(PHOTOS_PER_PAGE, "1", new Callback<PhotoResponse>() {
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void success(PhotoResponse photoResponse, Response response) {
-                Log.d(TAG, photoResponse.toString());
-                displayPhotos(photoResponse.getPhotos().getList());
-                mProgressbar.setVisibility(View.GONE);
-            }
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Service.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(txtSearch.getWindowToken(), 0);
 
-            @Override
-            public void failure(RetrofitError retrofitError) {
-                if (retrofitError.isNetworkError()) {
-                    Toast.makeText(MainActivity.this, "Error_network", Toast.LENGTH_SHORT).show();
-                }
-                Log.e(TAG, "Error retrieving photos", retrofitError);
+                String searchTerms = txtSearch.getText().toString();
+
+                // Empty search term
+//                if (searchTerms.length() == 0) {
+//                    Toast.makeText(TestActivity.this, "Oh no", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+
+                // API Call to search photos with user provided search term
+//                mFlickrService.searchPhotos(searchTerms, PHOTOS_PER_PAGE, "1", new Callback<PhotoResponse>() {
+//                mFlickrService.getRecent(PHOTOS_PER_PAGE, "1", new Callback<PhotoResponse>() {
+                mFlickrService.getInterest(PHOTOS_PER_PAGE, "1", new Callback<PhotoResponse>() {
+                    @Override
+                    public void success(PhotoResponse photoResponse, Response response) {
+                        Log.d(TAG, photoResponse.toString());
+                        displayPhotos(photoResponse.getPhotos().getList());
+                    }
+
+                    @Override
+                    public void failure(RetrofitError retrofitError) {
+                        if (retrofitError.isNetworkError()) {
+                            Toast.makeText(TestActivity.this, "Error_network", Toast.LENGTH_SHORT).show();
+                        }
+                        Log.e(TAG, "Error retrieving photos", retrofitError);
+                    }
+                });
+
             }
         });
-
     }
 
-    private void displayPhotos(List<Photo> photos) {
+    private void displayPhotos(List<pojo.Photo> photos) {
         exCardViewAdapter.setPhotos(photos);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_test, menu);
         return true;
     }
 
@@ -103,11 +116,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.activity_parallax_in, R.anim.top_bottom);
     }
 }

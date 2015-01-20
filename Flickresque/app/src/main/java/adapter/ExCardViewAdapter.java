@@ -1,5 +1,6 @@
 package adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,18 +8,30 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import don.com.flickresque.R;
+import pojo.Photo;
 
 /**
  * Created by new on 1/7/15.
  */
 public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.ViewHolder> {
 
-    public String[] mDataset;
+    private final Context mContext;
+    private List<Photo> mPhotos;
 
     // Constructor
-    public ExCardViewAdapter(String[] myDataset) {
-        mDataset = myDataset;
+    public ExCardViewAdapter(Context context, List<pojo.Photo> photos) {
+        mContext = context;
+        setPhotos(photos);
+    }
+
+    public pojo.Photo getItem(int position) {
+        return mPhotos.get(position);
     }
 
     // Create Views
@@ -33,25 +46,40 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
     // Invoked by the LayoutManger
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.name.setText(mDataset[position].toString());
-//        viewHolder.name.setBackgroundResource(R.drawable.fragment_three);
+        final Photo item = getItem(position);
+        // Load the data into the views from the PhotoViewHolder
+        Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl()).into(viewHolder.explorePicture);
+        viewHolder.owner.setText(item.getOwner());
+        viewHolder.name.setText(item.getTitle());
+
     }
 
     // Return size of dataset
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mPhotos.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView name;
+        public TextView owner;
         public ImageView explorePicture;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
-            name = (TextView)itemLayoutView.findViewById(R.id.photographer_textview);
-//            explorePicture = (ImageView)itemLayoutView.findViewById(R.id.cardview_img);
+            name = (TextView)itemLayoutView.findViewById(R.id.title_textview);
+            owner = (TextView)itemLayoutView.findViewById(R.id.photographer_textview);
+            explorePicture = (ImageView)itemLayoutView.findViewById(R.id.imageView);
         }
+    }
+
+    public void setPhotos(List<Photo> photos) {
+        if (photos == null) {
+            this.mPhotos = new ArrayList<Photo>(0);
+        } else {
+            this.mPhotos = photos;
+        }
+        notifyDataSetChanged();
     }
 }
