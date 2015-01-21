@@ -7,7 +7,11 @@ Android-Copymao
 
 ![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 
-
+Flickresque -> SoundCloud Mimic
+====
+Result of work:
+- See Issues
+- Tools: Retrofit(GSON & OkHttp), Picasso, ButterKnife
 
 Matchie -> EyeEm-like UI [Demo](https://www.youtube.com/watch?v=7dBwQBw4etw&feature=youtu.be)  
 ====
