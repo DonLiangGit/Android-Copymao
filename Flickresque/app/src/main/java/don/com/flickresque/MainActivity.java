@@ -1,5 +1,6 @@
 package don.com.flickresque;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +24,8 @@ import pojo.PhotoResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import util.Constants;
+import util.RecyclerItemClickListener;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -71,12 +74,19 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void failure(RetrofitError retrofitError) {
                 if (retrofitError.isNetworkError()) {
-                    Toast.makeText(MainActivity.this, "Error_network", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Network isn't stable.", Toast.LENGTH_SHORT).show();
                 }
+                mProgressbar.setVisibility(View.GONE);
                 Log.e(TAG, "Error retrieving photos", retrofitError);
             }
         });
 
+        exRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+            @Override public void onItemClick(View view, int position) {
+
+//                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
+            }
+        }));
     }
 
     private void displayPhotos(List<Photo> photos) {

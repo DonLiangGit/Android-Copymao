@@ -4,14 +4,30 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import util.Constants;
 
 
 public class ImageDetailActivity extends ActionBarActivity {
+
+    @InjectView(R.id.detail_imageview)
+    public ImageView detail_iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_detail);
+
+        ButterKnife.inject(this);
+
+        String imageUrl = getIntent().getStringExtra(Constants.KEY_IMAGE_URL);
+
+        Picasso.with(this).load(imageUrl).into(detail_iv);
 
     }
 
