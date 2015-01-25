@@ -2,6 +2,8 @@ package don.com.flickresque;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -23,6 +25,11 @@ public class GuideActivity extends FragmentActivity {
     private GuidePagerAdapter mPagerAdapter;
     private LayoutInflater panelInflater = null;
 
+    private final int AUTO_MSG = 1;
+    private final int HANDLE_MSG = AUTO_MSG + 1;
+    private static final int PHOTO_CHANGE_TIME = 2500;//定时变量
+    private int index = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +41,31 @@ public class GuideActivity extends FragmentActivity {
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setPageTransformer(false, new ParallaxPageTransformer());
 
+        // Infinite Viewpager
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         // Viewpagerindicator
         CirclePageIndicator guideIndicator = (CirclePageIndicator) findViewById(R.id.guide_indicator);
         guideIndicator.setViewPager(mViewPager);
+
+        // Autoplay
+//        mHandler.sendEmptyMessageDelayed(AUTO_MSG, PHOTO_CHANGE_TIME);
 
         // Overlay Inflater
         panelInflater = LayoutInflater.from(getBaseContext());
@@ -64,6 +93,28 @@ public class GuideActivity extends FragmentActivity {
         });
 
     }
+
+    private Handler mHandler = new Handler() {
+
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case AUTO_MSG:
+                    if(index <= 2) {
+                        mViewPager.setCurrentItem(index++);
+                    } else {
+                        mViewPager.setCurrentItem(0);
+                        index = 0;
+                    }
+                    mHandler.sendEmptyMessageDelayed(AUTO_MSG, PHOTO_CHANGE_TIME);
+                    break;
+                case HANDLE_MSG:
+                    mHandler.sendEmptyMessageDelayed(AUTO_MSG, PHOTO_CHANGE_TIME);
+                    break;
+                default:
+                    break;
+            }
+        };
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

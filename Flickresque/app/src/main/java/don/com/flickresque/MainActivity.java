@@ -1,8 +1,10 @@
 package don.com.flickresque;
 
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -24,7 +28,6 @@ import pojo.PhotoResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import util.Constants;
 import util.RecyclerItemClickListener;
 
 
@@ -41,19 +44,30 @@ public class MainActivity extends ActionBarActivity {
     private ExCardViewAdapter exCardViewAdapter;
     private RecyclerView.LayoutManager exLayoutManager;
 
+    @InjectView(R.id.main_toolbar)
+    public Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle drawerToggle;
+    private ListView leftDrawerList;
+    private ArrayAdapter<String> navigationDrawerAdapter;
+    private String[] leftSliderData = {"Explore", "Recent", "Search", "About"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // ButterKnife Injection
+        ButterKnife.inject(this);
+        
         // Material Design Toolbar(Actionbar)
-        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         if (toolbar != null)
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("Flickresque");
 
-        // ButterKnife Injection
-        ButterKnife.inject(this);
+
+        initView();
+        initDrawer();
 
         final FlickresqueClient.FlickresqueService mFlickrService = new FlickresqueClient().getFlickrService();
 
@@ -91,6 +105,45 @@ public class MainActivity extends ActionBarActivity {
 
     private void displayPhotos(List<Photo> photos) {
         exCardViewAdapter.setPhotos(photos);
+    }
+
+    private void initView() {
+        leftDrawerList = (ListView) findViewById(R.id.left_drawer);
+        toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        navigationDrawerAdapter=new ArrayAdapter<String>( MainActivity.this, android.R.layout.simple_list_item_1, leftSliderData);
+        leftDrawerList.setAdapter(navigationDrawerAdapter);
+    }
+
+    private void initDrawer() {
+
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                toolbar.setTitle("Flickresque");
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                toolbar.setTitle("Drawer Opened");
+            }
+        };
+        drawerLayout.setDrawerListener(drawerToggle);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
