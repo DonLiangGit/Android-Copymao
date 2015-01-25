@@ -59,7 +59,7 @@ public class MainActivity extends ActionBarActivity {
 
         // ButterKnife Injection
         ButterKnife.inject(this);
-        
+
         // Material Design Toolbar(Actionbar)
         if (toolbar != null)
             setSupportActionBar(toolbar);

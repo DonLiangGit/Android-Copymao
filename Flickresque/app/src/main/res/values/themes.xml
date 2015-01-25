@@ -8,11 +8,17 @@
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="searchViewStyle">@style/MySearchViewStyle</item>
     </style>
 
+    <!--Drawer Arrow-->
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="color">@color/backgroundWhite</item>
+    </style>
+
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@drawable/ic_magnify_white_24dp</item>
     </style>
 
 </resources>
