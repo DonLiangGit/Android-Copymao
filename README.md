@@ -9,6 +9,8 @@ Android-Copymao
 
 Flickresque -> SoundCloud Mimic
 ====
+<img src="images/flickresque_demo.png" width="30%" height="30%">
+
 Result of work:
 - See Issues
 - Tools: Retrofit(GSON & OkHttp), Picasso, ButterKnife
