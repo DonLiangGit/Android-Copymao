@@ -11,7 +11,7 @@
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#cc006a"/>
+        android:background="@color/colorPrimary"/>
 
     <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"

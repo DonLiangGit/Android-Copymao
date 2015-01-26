@@ -8,6 +8,7 @@
     <item name="fontLightWhite" type="color">#BDBDBD</item>
     <item name="fontGrey" type="color">#616161</item>
     <item name="backgroundWhite" type="color">#FAFAFA</item>
+    <item name="toolBarBlack" type="color">#212121</item>
 
     <!-- CREATE A COLOR ARRAY IN COLORS XML -->
     <color name="custom_theme_darker">#ff0084</color>

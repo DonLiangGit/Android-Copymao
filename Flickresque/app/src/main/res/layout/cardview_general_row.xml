@@ -1,81 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/cardview_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:id="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cardview_test"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photographer"
+            android:textColor="@color/fontLightWhite"
+            android:textSize="17sp"
+            android:background="@drawable/guide_textview_style"
+            android:id="@+id/photographer_textview"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_above="@+id/title_textview"
+            android:layout_marginBottom="3dp"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Photo Title"
+            android:textColor="@color/fontWhite"
+            android:textSize="19sp"
+            android:background="@drawable/guide_textview_style"
+            android:id="@+id/title_textview"
+            android:maxLines="2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignStart="@+id/imageView" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:id="@+id/cardview_content">
+            android:layout_height="1dp"
+            android:id="@+id/cardview_content_section"
+            android:layout_below="@+id/imageView"
+            android:layout_alignParentStart="true"
+            android:background="@color/fontWhite">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/imageView"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/cardview_test"
-                android:scaleType="centerCrop"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Photographer"
-                android:textColor="@color/fontLightWhite"
-                android:textSize="17sp"
-                android:background="@drawable/guide_textview_style"
-                android:id="@+id/photographer_textview"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_above="@+id/title_textview"
-                android:layout_marginBottom="3dp"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Photo Title"
-                android:textColor="@color/fontWhite"
-                android:textSize="19sp"
-                android:background="@drawable/guide_textview_style"
-                android:id="@+id/title_textview"
-                android:maxLines="2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="10dp"
-                android:layout_alignBottom="@+id/imageView"
-                android:layout_alignStart="@+id/imageView" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/cardview_content_section"
-                android:layout_below="@+id/imageView"
-                android:layout_alignParentStart="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="# HashTag"
-                    android:textSize="15sp"
-                    android:textColor="@color/fontGrey"
-                    android:id="@+id/hashtag_textView"
-                    android:layout_marginLeft="5dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true" />
-
-            </RelativeLayout>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+                <!--android:text="# HashTag"-->
+                <!--android:textSize="15sp"-->
+                <!--android:textColor="@color/fontGrey"-->
+                <!--android:id="@+id/hashtag_textView"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_alignParentStart="true" />-->
 
         </RelativeLayout>
 
     </RelativeLayout>
 
-</android.support.v7.widget.CardView>
+</RelativeLayout>
