@@ -3,6 +3,7 @@ package don.com.flickresque;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,7 +36,9 @@ import util.RecyclerItemClickListener;
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "Flickresque Activity";
-    private static final String PHOTOS_PER_PAGE = "30";
+    private static final String PHOTOS_PER_PAGE = "40";
+
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @InjectView(R.id.explore_recycler_view)
     public RecyclerView exRecyclerView;
@@ -66,6 +69,7 @@ public class MainActivity extends ActionBarActivity {
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("Flickresque");
 
+        final SwipeRefreshLayout mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
 
         initView();
         initDrawer();
@@ -78,6 +82,7 @@ public class MainActivity extends ActionBarActivity {
         exCardViewAdapter = new ExCardViewAdapter(this, null);
         exRecyclerView.setAdapter(exCardViewAdapter);
 
+        // Retrofit Flickr Service
         mFlickrService.getInterest(PHOTOS_PER_PAGE, "1", new Callback<PhotoResponse>() {
             @Override
             public void success(PhotoResponse photoResponse, Response response) {
@@ -102,13 +107,49 @@ public class MainActivity extends ActionBarActivity {
 //                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
             }
         }));
+
+        // Fixing the scroll up and refresh bug.
+        exRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int state) {
+
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+                int topRowVerticalPosition = (exRecyclerView == null ||
+                        exRecyclerView.getChildCount() == 0) ? 0 : exRecyclerView.getChildAt(0).getTop();
+                mSwipeRefreshLayout.setEnabled(topRowVerticalPosition >= 0);
+            }
+        });
+
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mSwipeRefreshLayout.setRefreshing(true);
+//                refreshContent();
+            }
+        });
     }
+
+//    private void refreshContent(){
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if(mSwipeRefreshLayout.isRefreshing()) {
+//                    mSwipeRefreshLayout.setRefreshing(true);
+//                }
+//            }}, 2000);
+//
+//    }
 
     private void displayPhotos(List<Photo> photos) {
         exCardViewAdapter.setPhotos(photos);
     }
 
     private void initView() {
+
         leftDrawerList = (ListView) findViewById(R.id.left_drawer);
         toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -129,7 +170,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                toolbar.setTitle("Drawer Opened");
+                toolbar.setTitle("Explore");
             }
         };
         drawerLayout.setDrawerListener(drawerToggle);

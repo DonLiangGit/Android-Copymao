@@ -11,49 +11,58 @@
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/toolBarBlack"/>
 
-    <android.support.v4.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:id="@+id/drawerLayout"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
+        <android.support.v4.widget.DrawerLayout
             android:layout_width="match_parent"
+            android:id="@+id/drawerLayout"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/explore_recycler_view"
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/activity_main_swipe_refresh_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical" />
+                android:layout_height="wrap_content">
 
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/progress_bar"
-                style="?android:progressBarStyle"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </RelativeLayout>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/explore_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical" />
 
-        <!--Navigation Bar-->
-        <RelativeLayout
-            android:layout_gravity="left|start"
-            android:layout_width="match_parent"
-            android:background="#fff"
-            android:layout_height="match_parent">
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progress_bar"
+                        style="?android:progressBarStyle"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true" />
 
-            <ListView
-                android:id="@+id/left_drawer"
+                </RelativeLayout>
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <!--Navigation Bar-->
+            <RelativeLayout
+                android:layout_gravity="left|start"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#eee"
-                android:background="#fff"
-                android:dividerHeight="1dp" />
-        </RelativeLayout>
+                android:background="@color/toolBarBlack"
+                android:layout_height="match_parent">
 
-    </android.support.v4.widget.DrawerLayout>
+                <ListView
+                    android:id="@+id/left_drawer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@color/toolBarBlack"
+                    android:background="@color/toolBarBlack"
+                    android:dividerHeight="1dp" />
+            </RelativeLayout>
+
+        </android.support.v4.widget.DrawerLayout>
+
+
+
 
 </LinearLayout>
