@@ -2,6 +2,7 @@ package don.com.flickresque;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -117,6 +118,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+                // Fix swipetorefresh&scrollup bug
                 int topRowVerticalPosition = (exRecyclerView == null ||
                         exRecyclerView.getChildCount() == 0) ? 0 : exRecyclerView.getChildAt(0).getTop();
                 mSwipeRefreshLayout.setEnabled(topRowVerticalPosition >= 0);
@@ -128,21 +130,26 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onRefresh() {
                 mSwipeRefreshLayout.setRefreshing(true);
-//                refreshContent();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }}, 2000);
+
             }
         });
     }
 
-//    private void refreshContent(){
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if(mSwipeRefreshLayout.isRefreshing()) {
-//                    mSwipeRefreshLayout.setRefreshing(true);
-//                }
-//            }}, 2000);
-//
-//    }
+    private void refreshContent(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                mAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, getNewTweets());
+//                mListView.setAdapter(mAdapter);
+                mSwipeRefreshLayout.setRefreshing(false);
+            }}, 2000);
+
+    }
 
     private void displayPhotos(List<Photo> photos) {
         exCardViewAdapter.setPhotos(photos);
@@ -159,6 +166,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void initDrawer() {
 
+        // Drawer Initialization
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
 
             @Override
