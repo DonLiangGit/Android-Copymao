@@ -7,6 +7,10 @@ Android-Copymao
 
 ![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 
+Blupe Mimic
+Result of work:
+- Viewpager Textview Changed as iOS version, customized viewpager indicator.
+
 Flickresque -> SoundCloud Mimic
 ====
 <img src="images/flickresque_demo.png" width="30%" height="30%">
