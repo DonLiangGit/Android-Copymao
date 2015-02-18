@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/guide_staic_layout">
+
+    <TextSwitcher
+        android:layout_marginBottom="50dp"
+        android:id="@+id/textSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        />
+
+    <TextSwitcher
+        android:id="@+id/textSwitcherTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="55dp"
+        />
+
+    <TextSwitcher
+        android:id="@+id/textSwitcherDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="100dp"
+        />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btn_connectFB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:borderColor="#3b5998"
+        app:borderWidth="0dp"
+        app:defaultColor="#3b5998"
+        app:focusColor="#3b5998"
+        app:radius="5dp"
+        app:text="Connect to Facebook"
+        app:textColor="#FFFFFF"
+        android:layout_marginBottom="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Terms of Service ● Privacy Policy"
+        android:textColor="#FFFFFF"
+        android:id="@+id/textView"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_above="@+id/btn_connectFB"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/circlewhite" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/circleshallow" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/circleshallow" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/circleshallow" />
+
+    </LinearLayout>
+
+</RelativeLayout>
