@@ -11,6 +11,7 @@ Blupe Mimic
 ====
 Working Stage:
 - Facebook Integration(Login/Post)
+
 Result of work:
 - Viewpager Textview Changed as iOS version, customized viewpager indicator (Ignore the new updated version screen).
 
