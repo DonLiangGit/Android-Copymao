@@ -17,7 +17,7 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import don.com.blupe.adapter.GuidePagerAdapter;
+import don.com.adapter.GuidePagerAdapter;
 
 
 public class GuideActivity extends FragmentActivity {

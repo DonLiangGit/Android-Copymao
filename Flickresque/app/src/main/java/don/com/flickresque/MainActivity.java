@@ -7,7 +7,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -31,7 +31,9 @@ import pojo.PhotoResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import util.OnItemClickListener;
 import util.RecyclerItemClickListener;
+import util.SpaceItemDecoration;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -47,7 +49,7 @@ public class MainActivity extends ActionBarActivity {
     public ProgressBar mProgressbar;
 
     private ExCardViewAdapter exCardViewAdapter;
-    private RecyclerView.LayoutManager exLayoutManager;
+    private GridLayoutManager exLayoutManager;
 
     @InjectView(R.id.main_toolbar)
     public Toolbar toolbar;
@@ -78,9 +80,41 @@ public class MainActivity extends ActionBarActivity {
         final FlickresqueClient.FlickresqueService mFlickrService = new FlickresqueClient().getFlickrService();
 
         // Material CardView
-        exLayoutManager = new LinearLayoutManager(this);
+        exLayoutManager = new GridLayoutManager(this, 7);
+        exLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                int test = 7 - position % 7;
+                int valid = position % 7;
+                if(valid == 0) {
+                    return 7;
+                } else if(valid == 1) {
+                    return 3;
+                } else if(valid == 2) {
+                    return 4;
+                } else if(valid == 3) {
+                    return 2;
+                } else if(valid == 4) {
+                    return 5;
+                } else if(valid == 5){
+                    return 4;
+                } else if(valid == 6){
+                    return 3;
+                } else {
+                    return test;
+                }
+            }
+        });
         exRecyclerView.setLayoutManager(exLayoutManager);
+        int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.grid_margin);
+        exRecyclerView.addItemDecoration(new SpaceItemDecoration(spacingInPixels));
         exCardViewAdapter = new ExCardViewAdapter(this, null);
+        exCardViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Log.d("Clicked", Integer.toString(position));
+            }
+        });
         exRecyclerView.setAdapter(exCardViewAdapter);
 
         // Retrofit Flickr Service
@@ -133,22 +167,12 @@ public class MainActivity extends ActionBarActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        exCardViewAdapter.notifyDataSetChanged();
                         mSwipeRefreshLayout.setRefreshing(false);
                     }}, 2000);
 
             }
         });
-    }
-
-    private void refreshContent(){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-//                mAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, getNewTweets());
-//                mListView.setAdapter(mAdapter);
-                mSwipeRefreshLayout.setRefreshing(false);
-            }}, 2000);
-
     }
 
     private void displayPhotos(List<Photo> photos) {

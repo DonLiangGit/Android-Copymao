@@ -1,4 +1,4 @@
-package don.com.blupe.adapter;
+package don.com.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
