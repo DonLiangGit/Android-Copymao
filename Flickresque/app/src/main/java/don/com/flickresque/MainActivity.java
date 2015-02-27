@@ -31,7 +31,6 @@ import pojo.PhotoResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import util.OnItemClickListener;
 import util.RecyclerItemClickListener;
 import util.SpaceItemDecoration;
 
@@ -109,12 +108,13 @@ public class MainActivity extends ActionBarActivity {
         int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.grid_margin);
         exRecyclerView.addItemDecoration(new SpaceItemDecoration(spacingInPixels));
         exCardViewAdapter = new ExCardViewAdapter(this, null);
-        exCardViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+        exCardViewAdapter.setOnItemClickListener(new ExCardViewAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View v, int position) {
+            public void onItemClick(View view, int position) {
                 Log.d("Clicked", Integer.toString(position));
             }
         });
+
         exRecyclerView.setAdapter(exCardViewAdapter);
 
         // Retrofit Flickr Service
@@ -139,7 +139,7 @@ public class MainActivity extends ActionBarActivity {
         exRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override public void onItemClick(View view, int position) {
 
-//                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
             }
         }));
 

@@ -15,7 +15,6 @@ import java.util.List;
 
 import don.com.flickresque.R;
 import pojo.Photo;
-import util.OnItemClickListener;
 
 /**
  * Created by new on 1/7/15.
@@ -26,7 +25,7 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
     private List<Photo> mPhotos;
     private static final int TYPE_ONE = 0;
     private static final int TYPE_TWO = 1;
-    static OnItemClickListener mItemClickListener;
+    private static OnItemClickListener mItemClickListener;
 
     // Constructor
     public ExCardViewAdapter(Context context, List<pojo.Photo> photos) {
@@ -45,7 +44,6 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         View itemLayoutView = null;
         itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_general_row, null);
         viewHolder = new ViewHolder(itemLayoutView);
-
         return viewHolder;
     }
 
@@ -111,19 +109,22 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         }
     }
 
-   public void setOnItemClickListener(final OnItemClickListener mItemClickListener) {
+    public interface OnItemClickListener {
+        public void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
    }
 
-   public void setPhotos(List<Photo> photos) {
+    public void setPhotos(List<Photo> photos) {
         if (photos == null) {
             this.mPhotos = new ArrayList<Photo>(0);
         } else {
             this.mPhotos = photos;
         }
         notifyDataSetChanged();
-   }
-
+    }
 
 }
 
