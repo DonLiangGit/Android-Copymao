@@ -31,11 +31,10 @@ import pojo.PhotoResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import util.RecyclerItemClickListener;
 import util.SpaceItemDecoration;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements ExCardViewAdapter.OnItemClickListener {
 
     private static final String TAG = "Flickresque Activity";
     private static final String PHOTOS_PER_PAGE = "40";
@@ -108,12 +107,7 @@ public class MainActivity extends ActionBarActivity {
         int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.grid_margin);
         exRecyclerView.addItemDecoration(new SpaceItemDecoration(spacingInPixels));
         exCardViewAdapter = new ExCardViewAdapter(this, null);
-        exCardViewAdapter.setOnItemClickListener(new ExCardViewAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Log.d("Clicked", Integer.toString(position));
-            }
-        });
+        exCardViewAdapter.setOnItemClickListener(this);
 
         exRecyclerView.setAdapter(exCardViewAdapter);
 
@@ -136,12 +130,14 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        exRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
-            @Override public void onItemClick(View view, int position) {
-
-                Toast.makeText(getApplicationContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
-            }
-        }));
+//        exRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+//            @Override public void onItemClick(View view, int position) {
+//                Photo imageObj = ExCardViewAdapter.getItem(position);
+//                Intent i = new Intent(view.getContext(), ImageDetailActivity.class);
+//                i.putExtra(Constants.KEY_IMAGE_URL, imageObj.getFlickrPhotoUrl().getLargeUrl());
+//                view.getContext().startActivity(i);
+//            }
+//        }));
 
         // Fixing the scroll up and refresh bug.
         exRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -149,7 +145,6 @@ public class MainActivity extends ActionBarActivity {
             public void onScrollStateChanged(RecyclerView recyclerView, int state) {
 
             }
-
             @Override
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 // Fix swipetorefresh&scrollup bug
@@ -218,6 +213,13 @@ public class MainActivity extends ActionBarActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+
+        String str = exCardViewAdapter.getPhotos().get(position).getTitle();
+        Log.d("clicked", str);
     }
 
     @Override

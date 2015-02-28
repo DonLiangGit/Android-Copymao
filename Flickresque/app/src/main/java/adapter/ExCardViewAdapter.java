@@ -91,8 +91,7 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
 //            name = (TextView)itemLayoutView.findViewById(R.id.title_textview);
 //            owner = (TextView)itemLayoutView.findViewById(R.id.photographer_textview);
             explorePicture = (ImageView)itemLayoutView.findViewById(R.id.imageView);
-//            explorePicture.setOnClickListener(new View.OnClickListener() {
-//                @Override
+            itemLayoutView.setOnClickListener(this);
 //                public void onClick(View view) {
 //                    Intent i = new Intent(view.getContext(), ImageDetailActivity.class);
 //                    i.putExtra(Constants.KEY_IMAGE_URL, item.getFlickrPhotoUrl().getLargeUrl());
@@ -126,6 +125,9 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         notifyDataSetChanged();
     }
 
+    public List<Photo> getPhotos() {
+        return mPhotos;
+    }
 }
 
 
