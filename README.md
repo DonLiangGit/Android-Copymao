@@ -7,14 +7,6 @@ Android-Copymao
 
 ![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 
-Blupe Mimic
-====
-Working Stage:
-- Facebook Integration(Login/Post)
-
-Result of work:
-- Viewpager Textview Changed as iOS version, customized viewpager indicator (Ignore the new updated version screen).
-
 Flickresque -> SoundCloud Mimic
 ====
 <img src="images/flickresque_demo.png" width="30%" height="30%">
@@ -22,6 +14,14 @@ Flickresque -> SoundCloud Mimic
 Result of work:
 - See Issues
 - Tools: Retrofit(GSON & OkHttp), Picasso, ButterKnife
+
+Blupe Mimic
+====
+Working Stage:
+- Facebook Integration(Login/Post)
+
+Result of work:
+- Viewpager Textview Changed as iOS version, customized viewpager indicator (Ignore the new updated version screen).
 
 Matchie -> EyeEm-like UI [Demo](https://www.youtube.com/watch?v=7dBwQBw4etw&feature=youtu.be)  
 ====
