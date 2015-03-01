@@ -10,7 +10,6 @@
         android:layout_height="240dp"
         android:id="@+id/categoryImageView"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/interests"
         android:scaleType="centerCrop"/>
 
     <TextView

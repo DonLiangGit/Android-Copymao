@@ -78,7 +78,7 @@ public class GuideActivity extends FragmentActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+                Intent intent = new Intent(GuideActivity.this, CategoryActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.bottom_top, R.anim.activity_parallax);
             }

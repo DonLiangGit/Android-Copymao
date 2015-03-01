@@ -1,11 +1,14 @@
 package don.com.flickresque;
 
+import android.content.Intent;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -24,12 +27,12 @@ public class CategoryActivity extends ActionBarActivity {
     public Toolbar toolbar;
 
     private DonListView categoryListView;
-    private Integer[] itemBackGround = {R.drawable.interests, R.drawable.recent, R.drawable.random, R.drawable.about};
-    private String[] itemTitle = new String[] {"Interestingness", "Most Recent", "Random Photos", "About Developer"};
+    private Integer[] itemBackGround = new Integer[]{R.drawable.interests, R.drawable.recent, R.drawable.about, R.drawable.random};
+    private String[] itemTitle = new String[] {"Interestingness!", "Most Recent", "Random Photos", "About Developers"};
     private String[] itemDetails = new String[] {"Explore and discover some of Flickr's Finest within the last 7 days ",
                                 "Get recent photos uploaded to Flickr ",
                                 "Enjoy a list of random photos ",
-                                "Peek Flickresque developer's life "};
+                                "Peek the developers' daily life "};
     private ArrayList<CategoryItem> categoryItemArrayList;
 
     @Override
@@ -43,10 +46,10 @@ public class CategoryActivity extends ActionBarActivity {
         // Material Design Toolbar(Actionbar)
         if (toolbar != null)
             setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Welcome");
+        getSupportActionBar().setTitle("Pick Up a Category");
 
         categoryItemArrayList = new ArrayList<CategoryItem>();
-        for(int i = 0; i < itemTitle.length; i++) {
+        for(int i = 0; i < itemBackGround.length; i++) {
             CategoryItem categoryItem = new CategoryItem();
             categoryItem.setImgId(itemBackGround[i]);
             categoryItem.setCategoryItemTitle(itemTitle[i]);
@@ -83,6 +86,16 @@ public class CategoryActivity extends ActionBarActivity {
                 }
             }
         });
+
+        categoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final ImageView imgView = (ImageView)view.findViewById(R.id.categoryImageView);
+                Intent intent = new Intent(CategoryActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -106,5 +119,11 @@ public class CategoryActivity extends ActionBarActivity {
 //        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.activity_parallax_in, R.anim.top_bottom);
     }
 }

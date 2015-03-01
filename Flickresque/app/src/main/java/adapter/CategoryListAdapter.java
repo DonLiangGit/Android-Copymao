@@ -38,7 +38,7 @@ public class CategoryListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -54,16 +54,14 @@ public class CategoryListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         ViewHolder viewHolder;
-        if(inflater == null) {
+        if(inflater == null || convertView == null) {
             inflater = (LayoutInflater)mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-        if(convertView == null) {
             convertView = inflater.inflate(R.layout.category_list_item, null);
-
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.categoryImageView);
+        }
+            final ImageView imageView = (ImageView) convertView.findViewById(R.id.categoryImageView);
             imageView.setImageResource(mArrayList.get(position).getimgId());
             Matrix matrix = imageView.getImageMatrix();
-            matrix.postTranslate(0, -150);
+//            matrix.postTranslate(0, -100);
             imageView.setImageMatrix(matrix);
 
             imageView.setColorFilter(Color.LTGRAY, PorterDuff.Mode.MULTIPLY);
@@ -84,8 +82,23 @@ public class CategoryListAdapter extends BaseAdapter {
             viewHolder.imageBGView = imageView;
             viewHolder.categoryTitle = textView;
             viewHolder.categoryDetails = itemDetailTextView;
+
+//            viewHolder.imageBGView.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View view, MotionEvent event) {
+//                    switch ((event.getAction())) {
+//                        case MotionEvent.ACTION_DOWN:
+//                            imageView.setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+//                        case MotionEvent.ACTION_UP:
+//                            imageView.setColorFilter(Color.LTGRAY, PorterDuff.Mode.MULTIPLY);
+//                        default:
+//                            break;
+//                    }
+//                    return true;
+//                }
+//            });
             convertView.setTag(viewHolder);
-        }
+
 
         viewHolder = (ViewHolder) convertView.getTag();
         return convertView;
