@@ -11,8 +11,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_image_detail">ImageDetailActivity</string>
     <string name="title_activity_test">TestActivity</string>
-
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+    <string name="title_activity_category">CategoryActivity</string>
 
 </resources>

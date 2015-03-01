@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="don.com.flickresque.CategoryActivity">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main_toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button_theme_darker"/>
+
+    <util.DonListView
+        android:id="@+id/category_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="2dp"
+        android:layout_below="@+id/main_toolbar" />
+
+</RelativeLayout>
