@@ -7,7 +7,7 @@ Android-Copymao
 
 ![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 
-Flickresque -> SoundCloud Mimic
+Flickresque(soundcloud & eyeem)
 ====
 <img src="images/flickresque_demo.png" width="30%" height="30%">
 
