@@ -61,7 +61,7 @@ public class CategoryListAdapter extends BaseAdapter {
             final ImageView imageView = (ImageView) convertView.findViewById(R.id.categoryImageView);
             imageView.setImageResource(mArrayList.get(position).getimgId());
             Matrix matrix = imageView.getImageMatrix();
-//            matrix.postTranslate(0, -100);
+            matrix.postTranslate(0, -100);
             imageView.setImageMatrix(matrix);
 
             imageView.setColorFilter(Color.LTGRAY, PorterDuff.Mode.MULTIPLY);

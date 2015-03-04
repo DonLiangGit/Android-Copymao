@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,12 +21,15 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import adapter.ExCardViewAdapter;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import flickr.FlickresqueClient;
+import fragment.ImageFragment;
 import pojo.Photo;
 import pojo.PhotoResponse;
 import retrofit.Callback;
@@ -55,7 +59,9 @@ public class MainActivity extends ActionBarActivity implements ExCardViewAdapter
     private ActionBarDrawerToggle drawerToggle;
     private ListView leftDrawerList;
     private ArrayAdapter<String> navigationDrawerAdapter;
-    private String[] leftSliderData = {"Explore", "Recent", "Search", "About"};
+    private String[] leftSliderData = {" About"};
+
+    private final ImageFragment imageFragment = new ImageFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +112,8 @@ public class MainActivity extends ActionBarActivity implements ExCardViewAdapter
         exRecyclerView.setLayoutManager(exLayoutManager);
         int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.grid_margin);
         exRecyclerView.addItemDecoration(new SpaceItemDecoration(spacingInPixels));
-        exCardViewAdapter = new ExCardViewAdapter(this, null);
+        View header = LayoutInflater.from(this).inflate(R.layout.category_list_item, exRecyclerView, false);
+        exCardViewAdapter = new ExCardViewAdapter(this, null, header);
         exCardViewAdapter.setOnItemClickListener(this);
 
         exRecyclerView.setAdapter(exCardViewAdapter);
@@ -168,6 +175,9 @@ public class MainActivity extends ActionBarActivity implements ExCardViewAdapter
 
             }
         });
+
+        getSupportFragmentManager().beginTransaction()
+                .add(android.R.id.content, imageFragment, "myfragment").hide(imageFragment).commit();
     }
 
     private void displayPhotos(List<Photo> photos) {
@@ -218,8 +228,12 @@ public class MainActivity extends ActionBarActivity implements ExCardViewAdapter
     @Override
     public void onItemClick(View view, int position) {
 
-        String str = exCardViewAdapter.getPhotos().get(position).getTitle();
+        String str = exCardViewAdapter.getPhotos().get(position).getFlickrPhotoUrl().getLargeUrl();
         Log.d("clicked", str);
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.abc_slide_in_top, 0, 0, R.anim.abc_fade_out)
+                .show(imageFragment).addToBackStack("backStack").commit();
+        Picasso.with(this).load(str).into(imageFragment.imageView);
     }
 
     @Override
@@ -240,17 +254,20 @@ public class MainActivity extends ActionBarActivity implements ExCardViewAdapter
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if(count != 0) {
+            getSupportFragmentManager().popBackStack();
+            getSupportFragmentManager().beginTransaction().hide(imageFragment).commit();
+        } else if(drawerLayout.isDrawerOpen(Gravity.LEFT)) {
             drawerLayout.closeDrawer(Gravity.LEFT);
         } else {
             super.onBackPressed();
-            overridePendingTransition(R.anim.activity_parallax_in, R.anim.top_bottom);
+            overridePendingTransition(R.anim.scale_in, R.anim.left_right);
         }
 
     }

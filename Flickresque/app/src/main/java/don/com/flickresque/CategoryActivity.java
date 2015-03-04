@@ -3,7 +3,9 @@ package don.com.flickresque;
 import android.content.Intent;
 import android.graphics.Matrix;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,6 +37,9 @@ public class CategoryActivity extends ActionBarActivity {
                                 "Peek the developers' daily life "};
     private ArrayList<CategoryItem> categoryItemArrayList;
 
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle drawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +51,10 @@ public class CategoryActivity extends ActionBarActivity {
         // Material Design Toolbar(Actionbar)
         if (toolbar != null)
             setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Pick Up a Category");
+        getSupportActionBar().setTitle("Flickresque");
+
+//        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+//        initDrawer();
 
         categoryItemArrayList = new ArrayList<CategoryItem>();
         for(int i = 0; i < itemBackGround.length; i++) {
@@ -98,6 +106,37 @@ public class CategoryActivity extends ActionBarActivity {
 
     }
 
+    private void initDrawer() {
+
+        // Drawer Initialization
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                toolbar.setTitle("Flickresque");
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                toolbar.setTitle("Explore");
+            }
+        };
+        drawerLayout.setDrawerListener(drawerToggle);
+    }
+
+//    @Override
+//    protected void onPostCreate(Bundle savedInstanceState) {
+//        super.onPostCreate(savedInstanceState);
+//        drawerToggle.syncState();
+//    }
+//
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        drawerToggle.onConfigurationChanged(newConfig);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

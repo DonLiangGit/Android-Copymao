@@ -11,14 +11,19 @@
         android:layout_height="wrap_content"
         android:background="@color/button_theme_darker"/>
 
+        <!--<android.support.v4.widget.DrawerLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:id="@+id/drawerLayout"-->
+            <!--android:layout_height="match_parent">-->
+            <util.DonListView
+                android:id="@+id/category_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="2dp"
+                android:layout_below="@+id/main_toolbar"/>
 
-    <util.DonListView
-        android:id="@+id/category_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="2dp"
-        android:layout_below="@+id/main_toolbar"/>
+        <!--</android.support.v4.widget.DrawerLayout>-->
 
 </RelativeLayout>

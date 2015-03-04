@@ -26,10 +26,18 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
     private static final int TYPE_ONE = 0;
     private static final int TYPE_TWO = 1;
     private static OnItemClickListener mItemClickListener;
+    private static final int ITEM_VIEW_TYPE_HEADER = 0;
+    private static final int ITEM_VIEW_TYPE_ITEM = 1;
+
+    private final View header;
 
     // Constructor
-    public ExCardViewAdapter(Context context, List<pojo.Photo> photos) {
-        mContext = context;
+    public ExCardViewAdapter(Context context, List<pojo.Photo> photos, View header) {
+        if(header == null) {
+            throw new IllegalArgumentException("header may null.");
+        }
+        this.mContext = context;
+        this.header = header;
         setPhotos(photos);
     }
 
@@ -37,14 +45,24 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         return mPhotos.get(position);
     }
 
+    public boolean isHeader(int position) {
+        return position == 0;
+    }
     // Create Views
     @Override
     public ExCardViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewHolder viewHolder = null;
         View itemLayoutView = null;
-        itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_general_row, null);
-        viewHolder = new ViewHolder(itemLayoutView);
-        return viewHolder;
+        if(viewType == ITEM_VIEW_TYPE_HEADER) {
+            itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_list_item, null);
+            viewHolder = new ViewHolder(itemLayoutView);
+            return viewHolder;
+        } else {
+            itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_general_row, null);
+            viewHolder = new ViewHolder(itemLayoutView);
+            return viewHolder;
+        }
+
     }
 
     // Invoked by the LayoutManger
@@ -54,9 +72,7 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         final Photo item = getItem(position);
         // Load the data into the views from the PhotoViewHolder
         switch (viewHolder.getItemViewType()) {
-            case TYPE_ONE:
-                Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl()).into(viewHolder.explorePicture);
-            case TYPE_TWO:
+            case ITEM_VIEW_TYPE_ITEM:
                 Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl()).into(viewHolder.explorePicture);
         }
 //        viewHolder.name.setText(item.getTitle());
@@ -65,13 +81,7 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
 
     @Override
     public int getItemViewType(int position) {
-        int viewType;
-        if(position % 2 == 0) {
-            viewType = TYPE_ONE;
-        } else {
-            viewType = TYPE_TWO;
-        }
-        return viewType;
+        return isHeader(position) ? ITEM_VIEW_TYPE_HEADER : ITEM_VIEW_TYPE_ITEM;
     }
 
     // Return size of dataset
@@ -92,12 +102,6 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
 //            owner = (TextView)itemLayoutView.findViewById(R.id.photographer_textview);
             explorePicture = (ImageView)itemLayoutView.findViewById(R.id.imageView);
             itemLayoutView.setOnClickListener(this);
-//                public void onClick(View view) {
-//                    Intent i = new Intent(view.getContext(), ImageDetailActivity.class);
-//                    i.putExtra(Constants.KEY_IMAGE_URL, item.getFlickrPhotoUrl().getLargeUrl());
-//                    view.getContext().startActivity(i);
-//                }
-//            });
         }
 
         @Override

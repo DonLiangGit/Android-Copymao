@@ -14,5 +14,10 @@
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
     <string name="title_activity_category">CategoryActivity</string>
+    <string name="title_activity_real_main">RealMainActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_updated">UpdatedActivity</string>
 
 </resources>

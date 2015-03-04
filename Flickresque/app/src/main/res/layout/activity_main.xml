@@ -11,7 +11,7 @@
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/toolBarBlack"/>
+        android:background="@color/button_theme_darker"/>
 
         <android.support.v4.widget.DrawerLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             <RelativeLayout
                 android:layout_gravity="left|start"
                 android:layout_width="match_parent"
-                android:background="@color/toolBarBlack"
+                android:background="@color/button_theme_darker"
                 android:layout_height="match_parent">
 
                 <ListView
@@ -56,13 +56,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:divider="@color/toolBarBlack"
-                    android:background="@color/toolBarBlack"
+                    android:background="@color/button_theme_darker"
                     android:dividerHeight="1dp" />
             </RelativeLayout>
 
         </android.support.v4.widget.DrawerLayout>
-
-
-
 
 </LinearLayout>

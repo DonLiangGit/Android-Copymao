@@ -37,6 +37,11 @@
             android:name=".CategoryActivity"
             android:label="@string/title_activity_category" >
         </activity>
+        <activity
+            android:name=".UpdatedActivity"
+            android:label="@string/title_activity_updated" >
+
+        </activity>
     </application>
 
 </manifest>
