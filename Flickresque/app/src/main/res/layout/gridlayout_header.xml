@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:id="@+id/gridHeaderImageView"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:text="Category Title"
+        android:textColor="@color/fontWhite"
+        android:id="@+id/catetextView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+        <!--android:text="Details"-->
+        <!--android:textColor="@color/fontWhite"-->
+        <!--android:id="@+id/catedetailstextView"-->
+        <!--android:layout_alignBottom="@+id/categoryImageView"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginStart="10dp"-->
+        <!--android:layout_marginEnd="30dp"-->
+        <!--android:layout_marginBottom="10dp"/>-->
+
+</RelativeLayout>

@@ -16,7 +16,7 @@
             android:layout_height="200dp"
             android:id="@+id/imageView"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/cardview_test"
+            android:src="@drawable/recent"
             android:scaleType="centerCrop"/>
 
         <!--<TextView-->

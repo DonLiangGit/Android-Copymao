@@ -112,7 +112,7 @@ public class MainActivity extends ActionBarActivity implements ExCardViewAdapter
         exRecyclerView.setLayoutManager(exLayoutManager);
         int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.grid_margin);
         exRecyclerView.addItemDecoration(new SpaceItemDecoration(spacingInPixels));
-        View header = LayoutInflater.from(this).inflate(R.layout.category_list_item, exRecyclerView, false);
+        View header = LayoutInflater.from(this).inflate(R.layout.gridlayout_header, exRecyclerView, false);
         exCardViewAdapter = new ExCardViewAdapter(this, null, header);
         exCardViewAdapter.setOnItemClickListener(this);
 

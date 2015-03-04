@@ -1,6 +1,8 @@
 package adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,11 +25,10 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
 
     private final Context mContext;
     private List<Photo> mPhotos;
-    private static final int TYPE_ONE = 0;
-    private static final int TYPE_TWO = 1;
     private static OnItemClickListener mItemClickListener;
     private static final int ITEM_VIEW_TYPE_HEADER = 0;
     private static final int ITEM_VIEW_TYPE_ITEM = 1;
+    private ImageView replacement;
 
     private final View header;
 
@@ -41,20 +42,13 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         setPhotos(photos);
     }
 
-    public pojo.Photo getItem(int position) {
-        return mPhotos.get(position);
-    }
-
-    public boolean isHeader(int position) {
-        return position == 0;
-    }
     // Create Views
     @Override
     public ExCardViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewHolder viewHolder = null;
-        View itemLayoutView = null;
+        ViewHolder viewHolder;
+        View itemLayoutView;
         if(viewType == ITEM_VIEW_TYPE_HEADER) {
-            itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_list_item, null);
+            itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.gridlayout_header, null);
             viewHolder = new ViewHolder(itemLayoutView);
             return viewHolder;
         } else {
@@ -70,18 +64,30 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
         final Photo item = getItem(position);
-        // Load the data into the views from the PhotoViewHolder
-        switch (viewHolder.getItemViewType()) {
-            case ITEM_VIEW_TYPE_ITEM:
-                Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl()).into(viewHolder.explorePicture);
+        if(viewHolder.getItemViewType() == 0) {
+            Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl())
+                    .into(viewHolder.headerPicture);
+            viewHolder.headerPicture.setColorFilter(Color.LTGRAY, PorterDuff.Mode.MULTIPLY);
+        } else {
+            Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl())
+                    .into(viewHolder.explorePicture);
+            viewHolder.explorePicture.setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
         }
 //        viewHolder.name.setText(item.getTitle());
 
     }
 
+    public pojo.Photo getItem(int position) {
+        return mPhotos.get(position);
+    }
+
     @Override
     public int getItemViewType(int position) {
         return isHeader(position) ? ITEM_VIEW_TYPE_HEADER : ITEM_VIEW_TYPE_ITEM;
+    }
+
+    public boolean isHeader(int position) {
+        return position == 0;
     }
 
     // Return size of dataset
@@ -95,11 +101,14 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         public TextView name;
         public TextView owner;
         public ImageView explorePicture;
+        public ImageView headerPicture;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
 //            name = (TextView)itemLayoutView.findViewById(R.id.title_textview);
 //            owner = (TextView)itemLayoutView.findViewById(R.id.photographer_textview);
+            headerPicture = (ImageView)itemLayoutView.findViewById(R.id.gridHeaderImageView);
+
             explorePicture = (ImageView)itemLayoutView.findViewById(R.id.imageView);
             itemLayoutView.setOnClickListener(this);
         }
