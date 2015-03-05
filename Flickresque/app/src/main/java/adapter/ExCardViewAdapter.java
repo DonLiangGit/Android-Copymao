@@ -67,11 +67,11 @@ public class ExCardViewAdapter extends RecyclerView.Adapter<ExCardViewAdapter.Vi
         if(viewHolder.getItemViewType() == 0) {
             Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl())
                     .into(viewHolder.headerPicture);
-            viewHolder.headerPicture.setColorFilter(Color.LTGRAY, PorterDuff.Mode.MULTIPLY);
+            viewHolder.headerPicture.setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
         } else {
             Picasso.with(mContext).load(item.getFlickrPhotoUrl().getLargeUrl())
                     .into(viewHolder.explorePicture);
-            viewHolder.explorePicture.setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+            viewHolder.explorePicture.setColorFilter(Color.LTGRAY, PorterDuff.Mode.MULTIPLY);
         }
 //        viewHolder.name.setText(item.getTitle());
 

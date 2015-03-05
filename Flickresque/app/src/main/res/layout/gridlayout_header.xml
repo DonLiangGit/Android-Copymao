@@ -16,23 +16,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="Category Title"
+        android:text="Interestingness"
         android:textColor="@color/fontWhite"
         android:id="@+id/catetextView"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
-        <!--android:text="Details"-->
-        <!--android:textColor="@color/fontWhite"-->
-        <!--android:id="@+id/catedetailstextView"-->
-        <!--android:layout_alignBottom="@+id/categoryImageView"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginStart="10dp"-->
-        <!--android:layout_marginEnd="30dp"-->
-        <!--android:layout_marginBottom="10dp"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Explore and discover"
+        android:textColor="@color/fontWhite"
+        android:id="@+id/catedetailstextView"
+        android:layout_below="@+id/catetextView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
