@@ -16,7 +16,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:textStyle="bold"
         android:text="Category Title"
         android:textColor="@color/fontWhite"
         android:id="@+id/catetextView"

@@ -13,7 +13,6 @@
         android:textColor="@color/fontWhite"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:background="@drawable/guide_textview_style"
         android:layout_marginLeft="15dp"
         android:layout_above="@+id/parallaxText_details"
         android:layout_alignParentStart="true" />
@@ -26,7 +25,6 @@
         android:textColor="@color/fontWhite"
         android:textStyle="normal"
         android:textSize="16sp"
-        android:background="@drawable/guide_textview_style"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="100dp"
