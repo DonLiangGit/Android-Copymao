@@ -9,7 +9,7 @@ Android-Copymao
 
 Flickresque(soundcloud & eyeem)
 ====
-<img src="images/flickresque_demo.png" width="30%" height="30%">
+![](soundcloud_vp.gif)
 
 Result of work:
 - See Issues
