@@ -7,6 +7,10 @@ Android-Copymao
 
 ![](http://media1.giphy.com/media/lBD50rKnTBvxu/200.gif)
 
+Floating Control(musixmatch)
+====
+- ViewTreeObserver
+
 Flickresque(soundcloud & eyeem)
 ====
 ![](soundcloud_vp.gif)
